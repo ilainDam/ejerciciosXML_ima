@@ -207,12 +207,9 @@ public class MusicoXML {
                         System.out.println(elemento.getElementsByTagName("frontman").item(0).getTextContent());
                         System.out.println(elemento.getAttribute("discografica"));
                         System.out.println(elemento.getAttribute("pais_de_origen"));
-                        NodeList discos = documento.getElementsByTagName("Discos");
-                        Node disco = discos.item(i);
-                        Element elementoDisco = (Element) disco;
-                        for (int j = 0; j < elementoDisco.getElementsByTagName("disco").getLength(); j++) {
-                                if(disco.getNodeType() == Node.ELEMENT_NODE) {
-                                    System.out.println(elementoDisco.getElementsByTagName("disco").item(j).getTextContent());
+                        for (int j = 0; j < elemento.getElementsByTagName("disco").getLength(); j++) {
+                                if(elemento.getNodeType() == Node.ELEMENT_NODE) {
+                                    System.out.println(elemento.getElementsByTagName("disco").item(j).getTextContent());
                                 }
                             }
                         System.out.println();
@@ -238,10 +235,12 @@ public class MusicoXML {
 				ArrayList<String> disco = new ArrayList<>();
                 disco.add("Three days grace Break");
                 disco.add("Evanescence");
-
+                ArrayList<String> disco2 = new ArrayList<>();
+                disco2.add("Three days grace I am machine");
+                disco2.add("Eminem The real slim shady");
 				Musico Musico1 = new Musico("The Wonder Years", 2005,"Punk-Pop","pepe","discografica","ESP",disco);
 				Musico Musico2 = new Musico("La Polla Records", 1980, "Punk","pica","discografica2","RUS",disco);
-				Musico Musico3 = new Musico("Phoebe Bridgers", 2012, "Indie-folk","piedra","discografica3","NKR",disco);
+				Musico Musico3 = new Musico("Phoebe Bridgers", 2012, "Indie-folk","piedra","discografica3","NKR",disco2);
 				
 				listaMusicos = new ArrayList<Musico>();
 				listaMusicos.add(Musico1);
