@@ -184,14 +184,6 @@ public class MusicoXML {
 					 * En este caso, no queremos coger el nodo ra�z, si no todos los hijos.
 					 */
 					NodeList Musicos = documento.getElementsByTagName("Musico");
-                    NodeList discos = documento.getElementsByTagName("Discos");
-                    for (int i = 0; i < discos.getLength(); i++) {
-                        Node disco = discos.item(i);
-                        if(disco.getNodeType() == Node.ELEMENT_NODE) {
-                            Element elementoDisco = (Element) disco;
-                            System.out.println(elementoDisco.getElementsByTagName("disco").item(0).getTextContent());
-                        }
-                    }
 					for (int i = 0; i < Musicos.getLength(); i++) {
 						Node Musico = Musicos.item(i);
 						// Siempre que se lee de un DOM hay que comprobar que es de tipo ELEMENT_NODE
@@ -215,6 +207,14 @@ public class MusicoXML {
                         System.out.println(elemento.getElementsByTagName("frontman").item(0).getTextContent());
                         System.out.println(elemento.getAttribute("discografica"));
                         System.out.println(elemento.getAttribute("pais_de_origen"));
+                        NodeList discos = documento.getElementsByTagName("Discos");
+                        Node disco = discos.item(i);
+                        Element elementoDisco = (Element) disco;
+                        for (int j = 0; j < elementoDisco.getElementsByTagName("disco").getLength(); j++) {
+                                if(disco.getNodeType() == Node.ELEMENT_NODE) {
+                                    System.out.println(elementoDisco.getElementsByTagName("disco").item(j).getTextContent());
+                                }
+                            }
                         System.out.println();
 						/*
 						 * Para obtener los atributos, se tendr�a que ejecutar algo as�
